@@ -1,0 +1,24 @@
+version: 1
+default_environment: dev
+project_id: 25200567-4dd9-46aa-a30c-7be327a19bcc
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-github
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-github.git
+    config:
+      repositories:
+      - sevkw/zoomcamp_de_project
+      start_date: '2023-01-01'
+    select:
+    - commits.url
+    - commits.sha
+    - commits.commit_timestamp
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
