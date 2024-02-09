@@ -41,19 +41,32 @@ After initializing the meltano project, if you try open up the meltano.yml file,
 This can be resolved by:
 
 1. cd into the new meltano project. For me, I ran `cd meltano-project-docker`
-2. run `sudo chmod -R 755` which will give permission to allow you to edit file in VS Code
+2. run `sudo chmod -R 755 .` which will give permission to allow you to edit file in VS Code
 
 
 Then try to re-do the Tutorial 1 through Tutorial 3 with docker
 
 # Tutorial 1 Commands
 
-1. Adding tap-github
+Ensure you are in the `meltano-project-docker` directory to run the following commands. If not, you will have to updated the mounted volume's path to get docker running.
+
+Alternatively, you can use an interactive Bash session to interact with docker. Simply run:
 
 ```bash
-    docker run -v "$(pwd)":/meltano_learn -w /meltano_learn meltano/meltano add extractor tap-github --variant=meltanolabs
+    docker run -v "$(pwd)":/meltano_learn -w /meltano_learn -it --entrypoint /bin/bash meltano/meltano
 ```
+
+You should be able to run `meltano --version` successfully in the cli. To exit the container's shell, simply type `exit`.
+
+### Adding tap-github
+
+```bash
+   docker run -v "$(pwd)":/meltano_learn -w /meltano_learn meltano/meltano add extractor tap-github --variant=meltanolabs
+```
+
+Continue following the tutorial using container's interactive shell.
 
 # Useful References for Learning Purpose
 
 - docker run (with volume mounts) command [reference](https://docs.docker.com/engine/reference/commandline/container_run/#volume)
+- docker mounted volume permission issue [explained here](https://github.com/docker/compose/issues/5507#issuecomment-353890002)

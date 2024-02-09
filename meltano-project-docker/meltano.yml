@@ -27,3 +27,6 @@ plugins:
     pip_url: meltanolabs-target-postgres
     config:
       user: meltano
+      database: postgres
+      add_record_metadata: true
+      host: localhost
