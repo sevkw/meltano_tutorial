@@ -12,29 +12,5 @@ plugins:
     pip_url: git+https://github.com/MeltanoLabs/tap-github.git
     config:
       repositories:
-      - s
-      - e
-      - v
-      - k
-      - w
-      - /
-      - z
-      - o
-      - o
-      - m
-      - c
-      - a
-      - m
-      - p
-      - _
-      - d
-      - e
-      - _
-      - p
-      - r
-      - o
-      - j
-      - e
-      - c
-      - t
+      - sevkw/zoomcamp_de_project
       start_date: '2023-01-01'
