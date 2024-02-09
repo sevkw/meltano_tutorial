@@ -14,3 +14,7 @@ plugins:
       repositories:
       - sevkw/zoomcamp_de_project
       start_date: '2023-01-01'
+    select:
+    - commits.url
+    - commits.sha
+    - commits.commit_timestamp
