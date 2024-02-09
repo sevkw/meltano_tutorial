@@ -4,7 +4,10 @@ This repo is created through following the [official guide](https://docs.meltano
 
 The exercise was first perform on local machine with Meltano installed in Python virtual environment.
 
+The project directory for running the Meltano project on a local machine (install meltano in virtual env) is in `my-meltano-project`.
+
 TODO: future exercise will include running Meltano in a docker container.
+
 
 ## Tutorial Summary
 
@@ -16,6 +19,33 @@ TODO: future exercise will include running Meltano in a docker container.
 
 There is a [post](https://github.com/meltano/meltano/issues/8391) detailing the bug when doing a `dbt run` command on `dbt-postgres`. I posted a solution and it worked out for me. 
 
-**The following content are not part of the tutorial**
+**The following contents are not part of the tutorial:**
 
 # Running Meltano in Docker Container
+
+Use `meltano-project-docker` directory to initialize a new meltano project (running in docker container).
+
+## Initialize New Project through Docker
+
+After ensuring you have pulled the meltano/meltano image following this [guide here](https://docs.meltano.com/guide/installation-guide#using-pre-built-docker-images), make sure you are in the root directory of this repo. That is you need to cd to `meltano_learn`.
+
+Then run the following command in terminal:
+
+```bash
+    docker run -v "$(pwd)":/meltano_learn -w /meltano_learn meltano/meltano init meltano-project-docker
+```
+After running you should see a new directory called `meltano-project-docker` being created.
+
+### File Permission Check
+After initializing the meltano project, if you try open up the meltano.yml file, you may encounter a Permission Error.
+This can be resolved by:
+
+1. cd into the new meltano project. For me, I ran `cd meltano-project-docker`
+2. run `sudo chmod -R 755` which will give permission
+
+
+Then try to re-do the Tutorial 1 through Tutorial 3 with docker
+
+# Useful References for Learning Purpose
+
+- docker run (with volume mounts) command [reference](https://docs.docker.com/engine/reference/commandline/container_run/#volume)
