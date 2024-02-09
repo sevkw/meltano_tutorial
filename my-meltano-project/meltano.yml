@@ -18,6 +18,7 @@ plugins:
     - commits.url
     - commits.sha
     - commits.commit_timestamp
+    - commits.*
   loaders:
   - name: target-jsonl
     variant: andyh1203
@@ -31,3 +32,15 @@ plugins:
       database: postgres
       add_record_metadata: true
       host: localhost
+  utilities:
+  - name: dbt-postgres
+    variant: dbt-labs
+    pip_url: dbt-core dbt-postgres git+https://github.com/meltano/dbt-ext.git@main
+    config:
+      host: localhost
+      port: 5432
+      user: meltano
+      password: password
+      dbname: postgres
+      schema: analytics
+
