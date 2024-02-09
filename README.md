@@ -41,10 +41,18 @@ After initializing the meltano project, if you try open up the meltano.yml file,
 This can be resolved by:
 
 1. cd into the new meltano project. For me, I ran `cd meltano-project-docker`
-2. run `sudo chmod -R 755` which will give permission
+2. run `sudo chmod -R 755` which will give permission to allow you to edit file in VS Code
 
 
 Then try to re-do the Tutorial 1 through Tutorial 3 with docker
+
+# Tutorial 1 Commands
+
+1. Adding tap-github
+
+```bash
+    docker run -v "$(pwd)":/meltano_learn -w /meltano_learn meltano/meltano add extractor tap-github --variant=meltanolabs
+```
 
 # Useful References for Learning Purpose
 
