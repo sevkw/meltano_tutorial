@@ -60,7 +60,7 @@ Continue following the tutorial using container's interactive shell.
 
 # Tutorial 2 Postgres and Docker
 
-Tutorial 3 involves loading the extracted data to a psql database hosted in a docker container. 
+Tutorial 2 introduces loading the extracted data to a psql database hosted in a docker container. 
 The challenge we have here is that we are running meltano in a different docker container. (Note that, if you do not run meltano in the interactive shell mode, you simply run each meltano command with a new container created. You can open up your Docker application to see how many containers you have created and exited.)
 
 When you try to execute `meltano run tap-github target-postgres` it would fail, because meltano from container A could not find the postgres database from container B (Note: you can continue using the same meltano_postgres container you created when doing the tutorial on your local machine, or you can create a new container.)
